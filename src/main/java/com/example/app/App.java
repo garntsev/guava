@@ -2,7 +2,6 @@ package com.example.app;
 
 import com.google.common.collect.ImmutableSet;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -12,14 +11,19 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
-//        threeWaysToCreateImmutableCollection();
-        modifyImmutableCollection();
+        threeWaysToCreateImmutableCollection();
+        modifyImmutableCollectionJdk();
     }
 
-    private static void modifyImmutableCollection() {
-        List<Integer> oddNumbers = Collections.unmodifiableList(Arrays.asList(1, 3, 5, 7));
-        oddNumbers.toArray()[0] = 2;
+    private static void modifyImmutableCollectionJdk() {
+        List<Integer> original = Arrays.asList(1, 3, 5, 7);
+        List<Integer> oddNumbers = Collections.unmodifiableList(original);
+        original.set(0, 2);
         for (Integer i : oddNumbers) {
+            System.out.println(i);
+        }
+        System.out.println();
+        for (Integer i : original) {
             System.out.println(i);
         }
     }
@@ -50,6 +54,7 @@ public class App {
     }
 
     private static ImmutableSet<String> usingOf() {
+        // Days of week
         return ImmutableSet.of("Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс");
     }
 
