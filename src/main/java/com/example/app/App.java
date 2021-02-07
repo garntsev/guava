@@ -19,13 +19,8 @@ public class App {
         List<Integer> original = Arrays.asList(1, 3, 5, 7);
         List<Integer> oddNumbers = Collections.unmodifiableList(original);
         original.set(0, 2);
-        for (Integer i : oddNumbers) {
-            System.out.println(i);
-        }
-        System.out.println();
-        for (Integer i : original) {
-            System.out.println(i);
-        }
+        out(original);
+        out(oddNumbers);
     }
 
     private static void threeWaysToCreateImmutableCollection() {
@@ -34,16 +29,11 @@ public class App {
         out(usingABuilder());
     }
 
-    private static <E> void out(ImmutableSet<E> set) {
-        for (E e : set) {
-            System.out.println(e);
-        }
-        System.out.println();
-    }
-
     private static ImmutableSet<String> usingABuilder() {
         // Earth group
-        List<String> earthGroup = Arrays.asList("Меркурий", "Меркурий", "Венера", "Земля", "Марс");
+        // Add null
+        List<String> earthGroup = Arrays.asList("Меркурий", "Меркурий", "Венера", "Земля", "Марс"//, null
+                );
         // Giants
         List<String> giants = Arrays.asList("Юпитер", "Сатурн", "Уран", "Нептун");
         return ImmutableSet.<String>builder()
@@ -62,5 +52,12 @@ public class App {
         // Any Collection, Iterable, Iterator or array
         String[] months = new String[]{"Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"};
         return ImmutableSet.copyOf(months);
+    }
+
+    private static <E> void out(Iterable<E> set) {
+        for (E e : set) {
+            System.out.println(e);
+        }
+        System.out.println();
     }
 }
