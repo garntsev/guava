@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Examples from webinar
+ * Examples from webinar: immutable collections
  */
-public class App {
+public class Immutable {
     public static void main(String[] args) {
         threeWaysToCreateImmutableCollection();
         modifyImmutableCollectionJdk();
@@ -33,7 +33,7 @@ public class App {
         // Earth group
         // Add null
         List<String> earthGroup = Arrays.asList("Меркурий", "Меркурий", "Венера", "Земля", "Марс"//, null
-                );
+        );
         // Giants
         List<String> giants = Arrays.asList("Юпитер", "Сатурн", "Уран", "Нептун");
         return ImmutableSet.<String>builder()
