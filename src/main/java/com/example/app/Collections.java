@@ -22,11 +22,11 @@ public class Collections {
     };
 
     public static void main(String[] args) {
-//        out(traditionalApproach());
-//        usingGuavaMutliset();
-//        variousMethodsOfMultiSet();
-//        multiMapUsage();
-//        biMapUsage();
+        out(traditionalApproach());
+        usingGuavaMutliset();
+        variousMethodsOfMultiSet();
+        multiMapUsage();
+        biMapUsage();
         rangeSetUsage();
         rangeMapUsage();
     }
