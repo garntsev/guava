@@ -54,7 +54,7 @@ public class Immutable {
         return ImmutableSet.copyOf(months);
     }
 
-    private static <E> void out(Iterable<E> set) {
+    public static <E> void out(Iterable<E> set) {
         for (E e : set) {
             System.out.println(e);
         }
