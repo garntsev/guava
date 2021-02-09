@@ -1,14 +1,8 @@
 package com.example.app;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Joiner;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Splitter;
-import com.google.common.collect.*;
+import com.google.common.base.*;
 
 import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
 
 import static com.example.app.Immutable.out;
 
@@ -20,6 +14,7 @@ public class Strings {
         usageOfJoiner();
         usageOfSplitter();
         usageOfToString();
+        System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"));
     }
 
     private static void usageOfToString() {
@@ -43,6 +38,13 @@ public class Strings {
                 .trimResults()
                 .omitEmptyStrings()
                 .split("hello.world;and.all,the,people"));
+
+        // CharMatcher of
+        out(Splitter.on(CharMatcher.anyOf("aeiou"))
+                .trimResults()
+                .omitEmptyStrings()
+                .split("hello world and all the people"));
+
 
         // Char matcher
 //        any()
